@@ -1,17 +1,19 @@
 package main
 
 import (
-	"fmt"
-	"io"
-	"net/http"
+  "fmt"
+  "io"
+  "net/http"
 )
 
+const Port = 8000
+
 func hello(w http.ResponseWriter, r *http.Request) {
-	io.WriteString(w, "Hello world!")
+  io.WriteString(w, "Hello world!")
 }
 
 func main() {
-	http.HandleFunc("/", hello)
-	fmt.Println("Server is listing on port 8000.")
-	http.ListenAndServe(":8000", nil)
+  http.HandleFunc("/", hello)
+  fmt.Println("Server is listing on port ", Port)
+  http.ListenAndServe(fmt.Sprintf(":%d", Port), nil)
 }
