@@ -16,7 +16,7 @@ func hello(w http.ResponseWriter, r *http.Request) {
   if text == "" {
     text = "World"
   }
-  io.WriteString(w, fmt.Sprintf("Hello, %s", text))
+  io.WriteString(w, fmt.Sprintf("Hi, %s", text))
 }
 
 func main() {
